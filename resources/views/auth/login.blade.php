@@ -68,6 +68,11 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 $( "#custom-auth-form" ).submit(function( event ) {
        var pass = document.getElementById('password');
        var passval = pass.value;
+       /* TODO 
+       --Call an api with unique key by email for this request and clear id in backend on login success??
+       --Use unique key to hash using other hash algorithm instead of base64
+       
+        */
        pass.value = btoa(passval);
 });
 </script>
