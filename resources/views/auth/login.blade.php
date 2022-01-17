@@ -30,14 +30,9 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="current-password" onkeyup="encodePassword()" />
+                    autocomplete="current-password"  />
             </div>
-            <div class="mt-4">
-                <x-label for="encodedpassword" :value="__('Encoded Password')" />
-
-                <x-input id="encodedpassword" class="block mt-1 w-full" type="password" name="encodedpassword" required
-                    autocomplete="current-password" />
-            </div>
+            
 
             <!-- Remember Me -->
             <div class="block mt-4">
@@ -65,11 +60,14 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
     </x-auth-card>
 </x-guest-layout>
 <script>
-    $('#password').change(function() {
-        var pass = document.getElementById('password').value;
-        var encodedpassword = document.getElementById('encodedpassword');
-        /* Encoding  to base64 */
-        encodedpassword.value = btoa(pass);
-        /* TODO use more dynamic encoding system  maybe pass some unique id for everyrequest? */
-    });
+  
+    
+
+
+
+$( "#custom-auth-form" ).submit(function( event ) {
+       var pass = document.getElementById('password');
+       var passval = pass.value;
+       pass.value = btoa(passval);
+});
 </script>
