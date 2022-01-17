@@ -27,8 +27,12 @@ class CustomAuthController extends Controller
 
         $email = $request->input('email');
         $password = $request->input('password');
+        $encodepassword = $request->input('encodedpassword');
         /* TODO Manipulate password from hashed key to plaintext here */
-        Log::info($password);
+        Log::info($encodepassword);
+        $decodedpassword = base64_decode($encodepassword);
+        Log::info('Decoded password' . $decodedpassword);
+
         /* TODO set Manipulated email and password to $credentails array */
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
