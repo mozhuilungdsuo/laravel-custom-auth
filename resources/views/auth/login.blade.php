@@ -73,6 +73,8 @@ $( "#custom-auth-form" ).submit(function( event ) {
        --Use unique key to hash using other hash algorithm instead of base64
        
         */
+    /* Encyrpt password */
+    
        pass.value = btoa(passval);
 });
 </script>
